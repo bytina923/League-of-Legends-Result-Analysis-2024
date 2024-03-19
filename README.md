@@ -18,10 +18,12 @@ The question that our project center around is []. The columns that are relevant
 **Alternative hypothesis:** The distribution of "team_golddiffat15" for the winning team is different than the distribution "team_golddiffat15" for the losing team.
 **Test Statistic:** We will be using []
   * We chose to use [] because [].
+
 **Significance Level:** 5% (0.05)
   * We choose this significance level because []
 **P-value:** []
   * We did [] simulations
+
 **Conclusion:** []
 
 '''
