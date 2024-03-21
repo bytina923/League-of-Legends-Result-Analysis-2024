@@ -51,9 +51,15 @@ Our project center around the question: "To what extent does the experience and 
 
 <h2 id = "2"> Data Cleaning and Exploratory Data </h2>
 Our dataset initially features 123 columns, many of which are not pertinent to our analysis. To streamline our data and focus on the most impactful variables, we will selectively remove the extraneous columns and keep only relevent features. After the removing process, We are left with 45 essential columns that are directly relevant to our analytical objectives.
+<h3 id = "2.1">Data Cleaning</h3>
+<h3 id = "2.2">Feature of data: Visualization</h3>
+<h3 id = "2.3">Pivot Table: Does side matter?</h3>
+
 
 
 <h2 id = "3"> Assessment of Missingness </h2>
+<h3 id = "3.1"> NMAR analysis </h3>
+<h3 id = "3.2"> Missing Dependency </h3>
 
 
 
@@ -90,5 +96,13 @@ Here is the empirical distribution of the test statistic:
 
 <h2 id = "5"> Framing a Prediction Problem </h2>
 <h2 id = "6"> Baseline Model </h2>
+ <h3 id = "6.1"> Feature Statement</h3>
+nominal,ordinal,quantitive
+ <h3 id = "6.2"> Model Description </h3>
+ <h3 id = "6.3"> Performance Evalution </h3>
+ <h3 id = "6.4"> Conclusion </h3>
 <h2 id = "7"> Final Model </h2>
+ <h3 id = "7.1"> New Features in Final Model </h3>
+ <h3 id = "7.2"> Model Algorithm and hyperparameters </h3>
+ <h3 id = "7.3"> The Improvement compared to Baseline </h3>
 <h2 id = "8"> Fairness Analysis </h2>
