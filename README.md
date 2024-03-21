@@ -1,8 +1,8 @@
 <h1 id = "0"> League-of-Legends-Result-Analysis-2024 </h1>
 
-<a href = "#1"> Introduction </a>
-<a href = "#2"> Data Cleaning and Exploratory Data </a>
-<a href = "#3"> Assessment of Missingness/a>
+<a href = "#1"> Introduction \n</a>
+<a href = "#2"> Data Cleaning and Exploratory Data \n</a>
+<a href = "#3"> Assessment of Missingness </a>
 <a href = "#4"> Hypothesis Testing </a>
 <a href = "#5"> Framing a Prediction Problem </a>
 <a href = "#6"> Baseline Model </a>
