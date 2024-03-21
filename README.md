@@ -1,6 +1,6 @@
 <h1 id = "0"> League-of-Legends-Result-Analysis-2024 </h1>
-* [Introduction](#1)
-* [Data Cleaning and Exploratory Data](#2)
+<a, herf = "#8">Fairness Analysis</a>
+
  
 <h2 id = "1"> Introduction </h2>
 Welcome to the adventure of Summoner's Rift, the heart of League of Legends, where strategy and skill stand between victory and defeat in one of the world's most famous multiplayer online battle arena video games. With millions of players engaging in this digital battleground, understanding the vast array of game data available is not only a matter of curiosity, but essential for players who wish to hone their skills and achieve mastery over the game. In this analysis, we aims to explore the rich tapestry of game data, seeking to unveil the pivotal factors that sway the tide of battle and shape the outcome of each match.
