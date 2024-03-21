@@ -25,6 +25,7 @@ Our dataset contains informations of players and teams from over 10,000 League o
 Our project center around the question: "To what extent does the experience and gold differences between teams impact the match results?" The significance of this question lies in its ability to uncover strategic elements that are critical to victory, offering valuable insights into effective gaming strategies for diverse audiences. Competitive players and esports professionals can use these insights to refine their tactics. Likewise, game developers and designers might find the outcomes beneficial for future game development, balancing, and enhancing player engagement. The columns that are relevant to answer the question are golddiffat10, xpdiffat10, golddiffat15, xpdiffat15. 
 
 <table>
+ <tbody>
  <tr>
   <th> column name </th>
     <th> Description </th>
@@ -45,7 +46,7 @@ Our project center around the question: "To what extent does the experience and 
   <td> xpdiffat15 </td>
     <td> The experience difference between one player and his rival at 15 minutes in games </td>
   </tr>
- 
+ </tbody>
 </table>
 
 <h2 id = "2"> Data Cleaning and Exploratory Data </h2>
@@ -56,7 +57,15 @@ Below is the first 5 rows for our cleaned dataframe:
 
 <h3 id = "2.2">Feature of data: Visualization</h3>
 Univariate Analysis
-<iframe src="asset/diff10.html" frameborder="0"> </iframe>
+
+<iframe src="asset/Top_Champion.html" frameborder="0"> </iframe>
+<iframe src="asset/Mid_Champion.html" frameborder="0"> </iframe>
+<iframe src="asset/Jng_Champion.html" frameborder="0"> </iframe>
+<iframe src="asset/bot_Champion.html" frameborder="0"> </iframe>
+<iframe src="asset/sup_Champion.html" frameborder="0"> </iframe>
+
+<iframe src="asset/diff10m.html" frameborder="0"> </iframe>
+<iframe src="asset/diff15m.html" frameborder="0"> </iframe>
 
 In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). 
 
