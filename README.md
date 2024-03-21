@@ -56,7 +56,7 @@ Below is the first 5 rows for our cleaned dataframe:
 
 <h3 id = "2.2">Feature of data: Visualization</h3>
 Univariate Analysis
-<iframe src="../asset/diff10.html" frameborder="0"> </iframe>
+<iframe src="asset/diff10.html" frameborder="0"> </iframe>
 
 In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). 
 
