@@ -1,4 +1,4 @@
-# League-of-Legends-Result-Analysis-2024
+<h1 id = "0"> League-of-Legends-Result-Analysis-2024 <\h1>
 * [Introduction](#1)
 * [Data Cleaning and Exploratory Data](#2)
 <h2 id = "1"> Introduction <\h2>
