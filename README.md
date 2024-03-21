@@ -1,13 +1,13 @@
 <h1 id = "0"> League-of-Legends-Result-Analysis-2024 </h1>
 
-<a href = "#1"> Introduction /n</a>
-<a href = "#2"> Data Cleaning and Exploratory Data \n</a>
-<a href = "#3"> Assessment of Missingness </a>
-<a href = "#4"> Hypothesis Testing </a>
-<a href = "#5"> Framing a Prediction Problem </a>
-<a href = "#6"> Baseline Model </a>
-<a href = "#7"> Final Model </a>
-<a href = "#8">Fairness Analysis</a>
+<a href = "#1"> Introduction </a><br>
+<a href = "#2"> Data Cleaning and Exploratory Data </a><br>
+<a href = "#3"> Assessment of Missingness </a><br>
+<a href = "#4"> Hypothesis Testing </a><br>
+<a href = "#5"> Framing a Prediction Problem </a><br>
+<a href = "#6"> Baseline Model </a><br>
+<a href = "#7"> Final Model </a><br>
+<a href = "#8">Fairness Analysis</a><br>
 
  
 <h2 id = "1"> Introduction </h2>
