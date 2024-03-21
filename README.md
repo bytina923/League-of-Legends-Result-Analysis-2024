@@ -57,7 +57,7 @@ Below is the first 5 rows for our cleaned dataframe:
 <h3 id = "2.2">Feature of data: Visualization</h3>
 Univariate Analysis
 <iframe
-  src="assets/diff10.html"
+  src="asset/diff10.html"
   width="40"
   height="30"
   frameborder="0">
