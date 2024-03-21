@@ -28,16 +28,24 @@ Our project center around the question: "To what extent does the experience and 
  <tr>
   <th>Column Name</th>
     <th>Discription</th>
+ </tr>
+ <tr>
   <th>golddiffat10</th>
     <th>The gold difference between one player and his rival at 10 minutes in games</th>
+ </tr>
+ <tr>
   <th>golddiffat15</th>
     <th>The gold difference between one player and his rival at 15 minutes in games</th>
+  </tr>
+ </tr>
   <th>xpdiffat10</th>
     <th>The experience difference between one player and his rival at 10 minutes in games</th>
+ </tr>
+ </tr>
   <th>xpdiffat15</th>
     <th>The experience difference between one player and his rival at 15 minutes in games</th>
-  
   </tr>
+ 
 </table>
 
 <h2 id = "2"> Data Cleaning and Exploratory Data </h2>
