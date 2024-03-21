@@ -31,19 +31,19 @@ Our project center around the question: "To what extent does the experience and 
  </tr>
  <tr>
   <td> golddiffat10 </td>
-    <th> The gold difference between one player and his rival at 10 minutes in games </th>
+    <td> The gold difference between one player and his rival at 10 minutes in games </td>
  </tr>
  <tr>
   <td> golddiffat15 </td>
-    <th> The gold difference between one player and his rival at 15 minutes in games </th>
+    <td> The gold difference between one player and his rival at 15 minutes in games </td>
   </tr>
  </tr>
   <td> xpdiffat10 </td>
-    <th> The experience difference between one player and his rival at 10 minutes in games </th>
+    <td> The experience difference between one player and his rival at 10 minutes in games </td>
  </tr>
  </tr>
   <td> xpdiffat15 </td>
-    <th> The experience difference between one player and his rival at 15 minutes in games </th>
+    <td> The experience difference between one player and his rival at 15 minutes in games </td>
   </tr>
  
 </table>
