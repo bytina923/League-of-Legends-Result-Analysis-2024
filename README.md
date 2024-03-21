@@ -30,19 +30,19 @@ Our project center around the question: "To what extent does the experience and 
     <th> Description </th>
  </tr>
  <tr>
-  <th> golddiffat10 </th>
+  <td> golddiffat10 </td>
     <th> The gold difference between one player and his rival at 10 minutes in games </th>
  </tr>
  <tr>
-  <th> golddiffat15 </th>
+  <td> golddiffat15 </td>
     <th> The gold difference between one player and his rival at 15 minutes in games </th>
   </tr>
  </tr>
-  <th> xpdiffat10 </th>
+  <td> xpdiffat10 </td>
     <th> The experience difference between one player and his rival at 10 minutes in games </th>
  </tr>
  </tr>
-  <th> xpdiffat15 </th>
+  <td> xpdiffat15 </td>
     <th> The experience difference between one player and his rival at 15 minutes in games </th>
   </tr>
  
