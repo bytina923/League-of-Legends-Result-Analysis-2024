@@ -2,6 +2,11 @@
 <a href = "#1"> Introduction </a><br>
 <a>&emsp;&emsp;&emsp;&emsp;</a> 
 <a href = "#1.1"> Description of League-of-Legends </a><br>
+<a>&emsp;&emsp;&emsp;&emsp;</a> 
+<a href = "#1.2"> Introduction of Dataset </a><br>
+<a>&emsp;&emsp;&emsp;&emsp;</a> 
+<a href = "#1.3"> Our Research Question </a><br>
+
 <a href = "#2"> Data Cleaning and Exploratory Data </a><br>
 <a href = "#3"> Assessment of Missingness </a><br>
 <a href = "#4"> Hypothesis Testing </a><br>
@@ -16,7 +21,7 @@
 <h3 id = "1.1"> Description of League-of-Legends </h3><br>
 Welcome to the adventure of Summoner's Rift, the heart of League of Legends, where strategy and skill stand between victory and defeat in one of the world's most famous multiplayer online battle arena video games. With millions of players engaging in this digital battleground, understanding the vast array of game data available is not only a matter of curiosity, but essential for players who wish to hone their skills and achieve mastery over the game. In this analysis, we aims to explore the rich tapestry of game data, seeking to unveil the pivotal factors that sway the tide of battle and shape the outcome of each match.
 
-<h3 id = "1.1"> Introduction of DataSet </h3><br>
+<h3 id = "1.1"> Introduction of Dataset </h3><br>
 Our dataset contains informations of players and teams from over 10,000 League of Legends competitive matches from 2022, providing a comprehensive look at the dynamics at play. Each match unfolds across 12 rows of data, capturing the essence of both teams: five players row and one summary row for each team, across more than 100 columns with virtually all the data that can be collected from a game. When we cleaned out our dataset, we will be left with 45 columns with n major catefories: [].
 
 <h3 id = "1.2"> Our Research Question </h3><br>
