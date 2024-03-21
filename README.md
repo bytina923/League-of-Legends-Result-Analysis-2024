@@ -15,12 +15,30 @@
 Welcome to the adventure of Summoner's Rift, the heart of League of Legends, where strategy and skill stand between victory and defeat in one of the world's most famous multiplayer online battle arena video games. With millions of players engaging in this digital battleground, understanding the vast array of game data available is not only a matter of curiosity, but essential for players who wish to hone their skills and achieve mastery over the game. In this analysis, we aims to explore the rich tapestry of game data, seeking to unveil the pivotal factors that sway the tide of battle and shape the outcome of each match.
 
 <h3 id = "1.1"> Introduction of Dataset </h3><br>
-Our dataset contains informations of players and teams from over 10,000 League of Legends competitive matches from 2022, providing a comprehensive look at the dynamics at play. Each match unfolds across 12 rows of data, capturing the essence of both teams: five players row and one summary row for each team, across more than 100 columns with virtually all the data that can be collected from a game. When we cleaned out our dataset, we will be left with 45 columns with n major catefories: [].
+Our dataset contains informations of players and teams from over 10,000 League of Legends competitive matches from 2022, providing a comprehensive look at the dynamics at play. Each match unfolds across 12 rows of data, capturing the essence of both teams: five players row and one summary row for each team, across more than 100 columns with virtually all the data that can be collected from a game. When we cleaned out our dataset, we will be left with 45 columns with 3 major categories: 
+1. id and name: these columns contains the playerID, teamID, player names and team names.
+2. Ban-Pick information: these columns contains the champions ban or picked by each team in the competitions
+3. statistics data in the 10/15 minutes: these columns is about the kill,death,assistsat,gold,experiences for each players and whole teams in 10/15 minutes.
+And, the "result" column which indicates whether a team win or lose in the competition. 
 
 <h3 id = "1.2"> Our Research Question </h3><br>
-Our project center around the question: "How do experience and gold differences between teams impact the match results?" The significance of this question lies in its ability to uncover strategic elements that are critical to victory, offering valuable insights into effective gaming strategies for diverse audiences. Competitive players and esports professionals can use these insights to refine their tactics. Likewise, game developers and designers might find the outcomes beneficial for future game development, balancing, and enhancing player engagement. The columns that are relevant to answer the question are [ ]. We chose these columns because [ ].
+Our project center around the question: "To what extent does the experience and gold differences between teams impact the match results?" The significance of this question lies in its ability to uncover strategic elements that are critical to victory, offering valuable insights into effective gaming strategies for diverse audiences. Competitive players and esports professionals can use these insights to refine their tactics. Likewise, game developers and designers might find the outcomes beneficial for future game development, balancing, and enhancing player engagement. The columns that are relevant to answer the question are golddiffat10,xpdiffat10,golddiffat15,xpdiffat15. 
 
-[descriptions of those relevant columns (in table format)]
+<table>
+ <tr>
+  <th>Column Name</th>
+    <th>Discription</th>
+  <th>golddiffat10</th>
+    <th>The gold difference between one player and his rival at 10 minutes in games</th>
+  <th>golddiffat15</th>
+    <th>The gold difference between one player and his rival at 15 minutes in games</th>
+  <th>xpdiffat10</th>
+    <th>The experience difference between one player and his rival at 10 minutes in games</th>
+  <th>xpdiffat15</th>
+    <th>The experience difference between one player and his rival at 15 minutes in games</th>
+  
+  </tr>
+</table>
 
 <h2 id = "2"> Data Cleaning and Exploratory Data </h2>
 Our dataset initially features 123 columns, many of which are not pertinent to our analysis. To streamline our data and focus on the most impactful variables, we will selectively remove the extraneous columns and keep only relevent features. After the removing process, We are left with 45 essential columns that are directly relevant to our analytical objectives.
