@@ -58,14 +58,14 @@ Below is the first 5 rows for our cleaned dataframe:
 <h3 id = "2.2">Feature of data: Visualization</h3>
 Univariate Analysis
 
-<iframe src="asset/Top_Champion.html" frameborder="0"> </iframe>
-<iframe src="asset/Mid_Champion.html" frameborder="0"> </iframe>
-<iframe src="asset/Jng_Champion.html" frameborder="0"> </iframe>
-<iframe src="asset/bot_Champion.html" frameborder="0"> </iframe>
-<iframe src="asset/sup_Champion.html" frameborder="0"> </iframe>
+<iframe src="asset/Top_Champion.html"  width="800" height="600" frameborder="0"> </iframe>
+<iframe src="asset/Mid_Champion.html"  width="800" height="600" frameborder="0"> </iframe>
+<iframe src="asset/Jng_Champion.html" width="800" height="600" frameborder="0"> </iframe>
+<iframe src="asset/bot_Champion.html" width="800" height="600" frameborder="0"> </iframe>
+<iframe src="asset/sup_Champion.html" width="800" height="600" frameborder="0"> </iframe>
 
-<iframe src="asset/diff10m.html" frameborder="0"> </iframe>
-<iframe src="asset/diff15m.html" frameborder="0"> </iframe>
+<iframe src="asset/diff10m.html" width="800" height="600" frameborder="0"> </iframe>
+<iframe src="asset/diff15m.html" width="800" height="600" frameborder="0"> </iframe>
 
 In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). 
 
