@@ -60,8 +60,9 @@ Univariate Analysis
   src="assets/diff10.html"
   width="40"
   height="30"
-  frameborder="0"
-></iframe>
+  frameborder="0">
+ 
+</iframe>
 
 In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). 
 
