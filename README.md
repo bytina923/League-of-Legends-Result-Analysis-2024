@@ -1,4 +1,5 @@
 <h1 id = "0"> League-of-Legends-Result-Analysis-2024 </h1>
+<ul>
 <a href = "#1"> Introduction </a><br>
 <a href = "#2"> Data Cleaning and Exploratory Data </a><br>
 <a href = "#3"> Assessment of Missingness </a><br>
@@ -7,7 +8,7 @@
 <a href = "#6"> Baseline Model </a><br>
 <a href = "#7"> Final Model </a><br>
 <a href = "#8">Fairness Analysis</a><br>
-
+</ul>
  
 <h2 id = "1"> Introduction </h2>
 
@@ -27,7 +28,7 @@ Our project center around the question: "To what extent does the experience and 
 <table>
  <tr>
   <th> column name </th>
-    <th> Discription </th>
+    <th> Description </th>
  </tr>
  <tr>
   <th> golddiffat10 </th>
