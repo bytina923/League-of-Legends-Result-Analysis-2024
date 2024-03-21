@@ -1,6 +1,6 @@
 <h1 id = "0"> League-of-Legends-Result-Analysis-2024 </h1>
 
-<a, href = "#8">Fairness Analysis</a>
+<a href = "#8">Fairness Analysis</a>
 
  
 <h2 id = "1"> Introduction </h2>
