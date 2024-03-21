@@ -58,8 +58,7 @@ Below is the first 5 rows for our cleaned dataframe:
 Univariate Analysis
 <iframe
   src="asset/diff10.html"
-  width="40"
-  height="30"
+
   frameborder="0">
  
 </iframe>
