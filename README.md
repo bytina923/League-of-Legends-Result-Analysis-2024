@@ -19,7 +19,7 @@ Our project center around the question: "How do experience and gold differences 
 
 [descriptions of those relevant columns (in table format)]
 
-<h2 id = "2"> Data Cleaning and Exploratory Data <\h2>
+<h2 id = "2"> Data Cleaning and Exploratory Data </h2>
 Our dataset initially features 123 columns, many of which are not pertinent to our analysis. To streamline our data and focus on the most impactful variables, we will selectively remove the extraneous columns and keep only relevent features. After the removing process, We are left with 45 essential columns that are directly relevant to our analytical objectives.
 
 
