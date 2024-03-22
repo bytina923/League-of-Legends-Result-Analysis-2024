@@ -144,14 +144,14 @@ With a p-val below the threshold of 0.01, we **reject the null hypothesis**. Thi
 **Significance Level:** 1% 
   * We choose this significance level because 1% can reduce the risk of Type I error compared to 5% signifance level.
 
-**P-value:** 0.003
+**P-value:** 0.00
   * We did 10000 simulations
 
 
 <iframe src="asset/result_goldat15.html" width="800" height="600" frameborder="0"> </iframe>
 
 
-**Conclusion:** Given the resulting p-value of 0.003 which falls below our significance threshold of 0.01, we reject the null hypothesis. This **suggests** that there is a statistically **significant difference** in the distribution of "team_golddiffat15" between winning and losing teams. The choice to focus on the "team_golddiffat15" metric as a means to explore how experience and gold differences impact match results is good. Gold is a tangible resource in the game that allows teams to purchase items and gain an advantage. By quantifying the gold difference, we can obtain a direct measure of one team's advantage over another, providing link to potential match outcomes. 
+**Conclusion:** Given the resulting p-value of 0.00 which falls below our significance threshold of 0.01, we reject the null hypothesis. This **suggests** that there is a statistically **significant difference** in the distribution of "team_golddiffat15" between winning and losing teams. The choice to focus on the "team_golddiffat15" metric as a means to explore how experience and gold differences impact match results is good. Gold is a tangible resource in the game that allows teams to purchase items and gain an advantage. By quantifying the gold difference, we can obtain a direct measure of one team's advantage over another, providing link to potential match outcomes. 
 
 <h2 id = "5"> Framing a Prediction Problem </h2>
 
