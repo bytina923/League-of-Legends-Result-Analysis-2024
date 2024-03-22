@@ -45,6 +45,12 @@ Our project center around the question: **"To what extent does the experience an
   </tr>
  </tbody>
 </table>
+| column name | Description |
+|-----------------|-----------------|
+| `golddiffat10`  | The gold difference between one player and his rival at 10 minutes in games   |
+| Row 2 Column 1  | Row 2 Column 2  |
+| Row 3 Column 1  | Row 3 Column 2  | 
+| Row 3 Column 1  | Row 3 Column 2  | 
 
 <h2 id = "2"> Data Cleaning and Exploratory Data </h2>
 <h3 id = "2.1">Data Cleaning</h3>
