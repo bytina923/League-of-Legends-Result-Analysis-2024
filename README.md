@@ -183,7 +183,7 @@ To further enhance our model's accuracy, we can diversifying the feature set wit
  
 <h1 id = "7"> Final Model </h1>
 
-To improve upon our baseline model, we added features **the champions chosen by the ten players and the team IDs** as different teams exhibit varying win rates, attributed to the distinct strengths, adaptability, and the synergies or counterplays of their chosen champions that affect game outcome. 
+To improve upon our baseline model, we will add features **the champions chosen by the ten players and the team IDs**. We believe these features would improve our model as different teams exhibit varying win rates, attributed to the distinct strengths, weakness, adaptability, and the synergies or counterplays of their chosen champions that affect game outcome. 
 
 ### Model selection
 We choose a **stacking model based on one logistics regression and one gradient boosting tree**. This decison come with the following consideration:
@@ -201,7 +201,7 @@ Finding optimal hyperparameter is cruical for model perfoermance, in our model, 
 
 The method used to select the hyperparameters is **cross_validation on a  5-fold test**, with the average F1 score as the metric to perform grid search. After running **GrideSearchCV**, the best hyperparameters are the following:
 * **PCA components:** 600 
-* **Logistic regression parameter(C):** 0.1 
+* **Logistic regression parameter(C):** 0.5 
 * **Graidient boosting tree max_depth:** 20
  
 <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
@@ -209,7 +209,7 @@ The method used to select the hyperparameters is **cross_validation on a  5-fold
 <iframe src="asset/final_mdl_cm.html" width="800" height="600" frameborder="0"> </iframe>
 
 ### Model performance
-Compared to the baseline model, our final model has a improvemnet of over 2% in F1 scores, particularly in contexts with missing statistical data. Using a stacked model, which integrate logistic regression and gradient boosting trees, has improve the model's capacity to capture complex relationships within the data, thus further boosting its predictive power.
+Compared to the baseline model, our final model has a **improvemnet of over 2% in F1 scores**, particularly in contexts with missing statistical data. Using a stacked model, which integrate logistic regression and gradient boosting trees, has improve the model's capacity to capture complex relationships within the data, thus further boosting its predictive power.
 
 <h1 id = "8"> Fairness Analysis </h1>
 
@@ -231,7 +231,7 @@ We will perform a **permutation test** with:
 
  <iframe src="asset/Fairness Analysis.html" width="800" height="600" frameborder="0"> </iframe>
 
-The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy between leagues with and without missing data. The difference in accuracy across these groups suggests that the presence of missing data does impact the model's performance (which are mainly on data with the league DCcup, LPL and LDL).
+The analysis resulted in a **p-value of 0.0**. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy between leagues with and without missing data. The difference in accuracy across these groups suggests that the presence of missing data does impact the model's performance (which are mainly on data with the league DCcup, LPL and LDL).
 
 <h1 id = "9"> Reference </h1>
 The dataset is from <a href = "https://oracleselixir.com/tools/downloads">https://oracleselixir.com/tools/downloads</a> <br>
