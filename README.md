@@ -155,7 +155,13 @@ With a p-val below the threshold of 0.01, we **reject the null hypothesis**. Thi
 
 <h2 id = "5"> Framing a Prediction Problem </h2>
 
-Building on previous exploration of how experience and gold differences between teams impact the match results, we want to fo futher on the factors that affect game result. Specifically, **we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID**. This presents a **binary classification problem**, where our goal is to predict the match `result` based on these variables. We choose "result" as our response variable because it can be distinctly classified into two categories (win or loss), leading our prediction into a binary classification framework and capturing the ultimate goal of every match. To evaluate our model, we will use the F1 score and the confusion matrix over other metrics such as accuracy. We choose the F1 score because of its balance between precision and recall, where it is capable of capturing both false positives and false negatives, which are crucial considerations in predicting game outcomes. We choose confusion matrix because it provides a comprehensive overview of the model's performance as it break down predictions into true positives, true negatives, false positives, and false negatives.
+Building on previous exploration of how experience and gold differences between teams impact the match results, we want to fo futher on the factors that affect game result. Specifically, **we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID**. This presents a **binary classification problem**, where our goal is to predict the match `result` based on these variables. We choose "result" as our response variable because it can be distinctly classified into two categories (win or loss), leading our prediction into a binary classification framework and capturing the ultimate goal of every match. 
+
+To evaluate our model, we will use the F1 score and the confusion matrix over other metrics such as accuracy. We choose the F1 score because of its balance between precision and recall, where it is capable of capturing both false positives and false negatives, which are crucial considerations in predicting game outcomes. We choose confusion matrix because it provides a comprehensive overview of the model's performance as it break down predictions into true positives, true negatives, false positives, and false negatives. At the time of prediction, we would know the features we identify in the 3 categories in part 1(introduction) :
+
+1. Game and player info: these columns contains `gameid`, `league`, `playerid`, `teamid`, `playername`, `teamname` and `result`.
+2. Ban-Pick info: these columns contains the champions ban or picked by each team in the match
+3. Game statistics at 10/15 minutes: these columns is about the `kill`, `death`, `assistsat`, `gold`, `experiences` for each players and whole teams in 10/15 minutes.
 
 <h1 id = "6"> Baseline Model </h1>
 
@@ -194,7 +200,7 @@ Finding optimal hyperparameter is cruical for model perfoermance, in our model, 
     * **max_depth:** this parameter specifies the maximum depth of individual trees. It prevent the model to become too complex and overfit to the training data.
 
 The method used to select the hyperparameters is **cross_validation on a  5-fold test**, with the average F1 score as the metric to perform grid search. After running **GrideSearchCV**, the best hyperparameters are the following:
-* **PCA components:** 600. 
+* **PCA components:** 600 
 * **Logistic regression parameter(C):** 0.1 
 * **Graidient boosting tree max_depth:** 20
  
