@@ -10,7 +10,7 @@ BY: Zhenghao Gong, Bingyan Liu
 <a href = "#7"> Final Model </a><br>
 <a href = "#8"> Fairness Analysis</a><br>
 
-<h2 id = "1"> Introduction </h2>
+<h1 id = "1"> Introduction </h1>
 
 Welcome to the adventure of Summoner's Rift, the heart of League of Legends, where strategy and skill stand between victory and defeat in one of the world's most famous multiplayer online battle arena video games. With millions of players engaging in this digital battleground, understanding the vast array of game data available is not only a matter of curiosity, but essential for players who wish to hone their skills and achieve mastery over the game. In this analysis, we aims to explore the rich tapestry of game data, seeking to unveil the pivotal factors that sway the tide of battle and shape the outcome of each match.
 
@@ -46,7 +46,7 @@ Our project center around the question: **"To what extent does the experience an
  </tbody>
 </table>
 
-<h2 id = "2"> Data Cleaning and Exploratory Data </h2>
+<h1 id = "2"> Data Cleaning and Exploratory Data </h1>
 <h3 id = "2.1">Data Cleaning</h3>
 After loading the dataset from the CSV file, we will proceed to the crucial step of data cleaning through the following steps to ensure the quality of our analysis: 
 
@@ -99,7 +99,7 @@ graph
 
 The **pivot table** showcases how gold advantage correlates with team positioning. For instances, that overall teams on the **Blue side are more likely to win** with considerable gold advantages by the 15-minute mark across all positions, especially with notable leads in jungle and overall team gold.
 
-<h2 id = "3"> Assessment of Missingness </h2>
+<h1 id = "3"> Assessment of Missingness </h1>
 
 The dataset we're analyzing contains numerous columns with missing data, a common issue in real-world datasets that may poses challenges for data analysis and modeling. 
 <iframe src="asset/missing_proportion.html" width="800" height="600" frameborder="0"> </iframe>
@@ -123,7 +123,7 @@ Here is the empirical distribution of the test statistic:
 
 With a p-val below the threshold of 0.01, we **reject the null hypothesis**. This indicates that **the missingness in the "top_golddiffat15" data is not random across different leagues**. The permutation test results, as visualized in the plot, suggests that the pattern of missing data is associated with certain conditions inherent to the leagues and so we conclude it to be MAR.
 
-<h2 id = "4"> Hypothesis Testing </h2>
+<h1 id = "4"> Hypothesis Testing </h1>
 
 **Null hypothesis**: The distribution of "team_golddiffat15" for the winning team is the **same** as the distribution of "team_golddiffat15" for the losing team.
 
@@ -150,7 +150,7 @@ grpah
 
 Building on previous exploration of how experience and gold differences between teams impact the match results, we want to fo futher on the factors that affect game outcomes. Specifically, **we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID**. This presents a **binary classification problem**, where our goal is to accurately forecast the match result based on these variables.
 
-<h2 id = "6"> Baseline Model </h2>
+<h1 id = "6"> Baseline Model </h1>
 
 <h3 id = "6.1"> Model and Features Description </h3>
 
@@ -168,7 +168,7 @@ The performance of our current model has an accuracy rate of **approximately 71%
 
 To further enhance our model's accuracy, we can diversifying the feature set with additional predictive variables that are less susceptible to missingness. Specifically, we can incorporating champion selected by the ten players and the team's ID as classification features.
  
-<h2 id = "7"> Final Model </h2>
+<h1 id = "7"> Final Model </h1>
 
 To improve upon out baseline model, we added the champions choosen by the ten players and the team IDs different teams exhibit varying win rates, attributed to the distinct strengths, adaptability, and the synergies or counterplays of their chosen champions.
 
@@ -205,7 +205,7 @@ The method used to select the hyperparameters is **cross_validation on a  5-fold
 ### Model performance
 Compared to the baseline model, our final model has a improvemnet of over 2% in F1 scores, particularly in contexts with missing statistical data. Using a stacked model, which integrate logistic regression and gradient boosting trees, has improve the model's capacity to capture complex relationships within the data, thus further boosting its predictive power.
 
-<h2 id = "8"> Fairness Analysis </h2>
+<h1 id = "8"> Fairness Analysis </h1>
 
 With a refined predictive model with an even better level of accuracy, we now want to access its fairness. This critical evaluation will ensure that our model does not disadvantage any group of players or teams based on arbitrary criteria. We define the 1 to perdition result that are correct and 0 to perdition result that are wrong. 
 
@@ -228,4 +228,4 @@ With a refined predictive model with an even better level of accuracy, we now wa
 The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy across different leagues. This discrepancy is likely attributable to the distribution of missing data (which are mainly on data with the league DCcup, LPL and LDL).
 
 
-<h2 id = "9"> Reference </h2>
+<h1 id = "9"> Reference </h1>
