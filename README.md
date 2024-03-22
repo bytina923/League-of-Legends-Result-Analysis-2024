@@ -223,7 +223,7 @@ We will perform a **permutation test** with:
 
 **Significant level**: 0.01
 
- <iframe src="asset/fairness_permutation.html" width="800" height="600" frameborder="0"> </iframe>
+ <iframe src="asset/Fairness Analysis.html" width="800" height="600" frameborder="0"> </iframe>
 
 The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy between leagues with and without missing data. The difference in accuracy across these groups suggests that the presence of missing data does impact the model's performance (which are mainly on data with the league DCcup, LPL and LDL).
 
