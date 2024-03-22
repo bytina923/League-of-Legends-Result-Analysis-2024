@@ -22,12 +22,13 @@ Our dataset contains informations of players and teams from over 10,000 League o
    
 Our project center around the question: **"To what extent does the experience and gold differences between teams impact the match results?"** The significance of this question lies in its ability to uncover strategic elements that are critical to victory, offering valuable insights into effective gaming strategies for diverse audiences. Competitive players and esports professionals can use these insights to refine their tactics. Likewise, game developers and designers might find the outcomes beneficial for future game development, balancing, and enhancing player engagement. The columns that are relevant to answer the question are `golddiffat10`, `xpdiffat10`, `golddiffat15`, `xpdiffat15`. 
 
-|    | column name   | Description                                                                       |
-|---:|:--------------|:----------------------------------------------------------------------------------|
-|  0 | golddiffat10  | The gold difference between one player and his rival at 10 minutes in games       |
-|  1 | golddiffat15  | The gold difference between one player and his rival at 15 minutes in games       |
-|  2 | xpdiffat10    | The experience difference between one player and his rival at 10 minutes in games |
-|  3 | xpdiffat15    | The experience difference between one player and his rival at 15 minutes in games |
+| column name   | Description                                                                       |
+|:--------------|:----------------------------------------------------------------------------------|
+| golddiffat10  | The gold difference between one player and his rival at 10 minutes in games       |
+| golddiffat15  | The gold difference between one player and his rival at 15 minutes in games       |
+| xpdiffat10    | The experience difference between one player and his rival at 10 minutes in games |
+| xpdiffat15    | The experience difference between one player and his rival at 15 minutes in games |
+
 
 <h1 id = "2"> Data Cleaning and Exploratory Data </h1>
 <h3 id = "2.1">Data Cleaning</h3>
