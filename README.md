@@ -200,11 +200,7 @@ Finding optional hyperparameter is cruical for model perfoermance, in our model,
 The method used to select the hyperparameters is **cross_validation on a  5-fold test**, with the average F1 score as the metric to perform grid search. After running **GrideSearchCV**, the best hyperparameters are the following:
 * **PCA components:** 600. 
 * **Logistic regression parameter(C):** 0.1 
-* **Graidient boosting tree parameter**
-    * **min_samples_leaf:** 40
-    * **max_leaf_nodes:** 15
-    * **max_depth:** 20
-    * **learning_rate:** 0.05
+* **Graidient boosting tree max_depth:** 20
  
 <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
  
