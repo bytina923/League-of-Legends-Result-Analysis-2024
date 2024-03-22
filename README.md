@@ -1,4 +1,5 @@
-<h1 id = "0"> League-of-Legends-Result-Analysis-2024 </h1>
+<h1 id = "0"> League of Legends Predictive Analytics </h1>
+BY: Zhenghao Gong, Bingyan Liu
 
 <a href = "#1"> Introduction </a><br>
 <a href = "#2"> Data Cleaning and Exploratory Data </a><br>
@@ -7,22 +8,18 @@
 <a href = "#5"> Framing a Prediction Problem </a><br>
 <a href = "#6"> Baseline Model </a><br>
 <a href = "#7"> Final Model </a><br>
-<a href = "#8">Fairness Analysis</a><br>
+<a href = "#8"> Fairness Analysis</a><br>
 
- 
 <h2 id = "1"> Introduction </h2>
 
-<h3 id = "1.1"> Description of League-of-Legends </h3><br>
 Welcome to the adventure of Summoner's Rift, the heart of League of Legends, where strategy and skill stand between victory and defeat in one of the world's most famous multiplayer online battle arena video games. With millions of players engaging in this digital battleground, understanding the vast array of game data available is not only a matter of curiosity, but essential for players who wish to hone their skills and achieve mastery over the game. In this analysis, we aims to explore the rich tapestry of game data, seeking to unveil the pivotal factors that sway the tide of battle and shape the outcome of each match.
 
-<h3 id = "1.1"> Introduction of Dataset </h3><br>
 Our dataset contains informations of players and teams from over 10,000 League of Legends competitive matches from 2022, providing a comprehensive look at the dynamics at play. Each match unfolds across 12 rows of data, capturing the essence of both teams: five players row and one summary row for each team, across more than 100 columns with virtually all the data that can be collected from a game. When we cleaned out our dataset, we will be left with 45 columns with 3 major categories: 
 1. Game and player info: these columns contains `gameid`, `league`, `playerid`, `teamid`, `playername`, `teamname` and `result`.
 2. Ban-Pick info: these columns contains the champions ban or picked by each team in the match
 3. Game statistics at 10/15 minutes: these columns is about the `kill`, `death`, `assistsat`, `gold`, `experiences` for each players and whole teams in 10/15 minutes.
 
-<h3 id = "1.2"> Our Research Question </h3><br>
-Our project center around the question: "To what extent does the experience and gold differences between teams impact the match results?" The significance of this question lies in its ability to uncover strategic elements that are critical to victory, offering valuable insights into effective gaming strategies for diverse audiences. Competitive players and esports professionals can use these insights to refine their tactics. Likewise, game developers and designers might find the outcomes beneficial for future game development, balancing, and enhancing player engagement. The columns that are relevant to answer the question are golddiffat10, xpdiffat10, golddiffat15, xpdiffat15. 
+Our project center around the question: **"To what extent does the experience and gold differences between teams impact the match results?"** The significance of this question lies in its ability to uncover strategic elements that are critical to victory, offering valuable insights into effective gaming strategies for diverse audiences. Competitive players and esports professionals can use these insights to refine their tactics. Likewise, game developers and designers might find the outcomes beneficial for future game development, balancing, and enhancing player engagement. The columns that are relevant to answer the question are `golddiffat10`, `xpdiffat10`, `golddiffat15`, `xpdiffat15`. 
 
 <table>
  <tbody>
@@ -51,12 +48,22 @@ Our project center around the question: "To what extent does the experience and 
 
 <h2 id = "2"> Data Cleaning and Exploratory Data </h2>
 <h3 id = "2.1">Data Cleaning</h3>
-Our dataset initially features 123 columns, many of which are not pertinent to our analysis. To streamline our data and focus on the most impactful variables, we will selectively remove the extraneous columns and keep only relevent features. After the removing process, We are left with 45 essential columns that are directly relevant to our analytical objectives. Then, to consolidate our game data, we'll transform the current structure, where each "gameid" corresponds to 12 rows (information for 2 teams, including 5 players per team and 1 team summary each), into a more concise format. Each game will now be represented by a single row that combines the information of the 5 players and their team summary. In the process, we inadvertently homogenized the data types across our DataFrame as the conversion to a NumPy array and subsequent reconstruction into a DataFrame defaulted all columns to the object data type. Thus, we will reinstated the data type with its **most frequently occurring value type** to ensuring that each column was represented by its most suitable data type. Lastly, to fully capture the dynamics of champion selection, we merge data from the opposing team with each team's data on a match-by-match basis. Incorporating this additional relevant information will improve the dataset's utility for predictive modeling and strategic analysis. After all cleaning is done, we now have a dataframe with  24878 rows and 211 columns.
+After loading the dataset from the CSV file, we will proceed to the crucial step of data cleaning through the following steps to ensure the quality of our analysis: 
 
-Below is the first 5 rows for our cleaned dataframe:
+* **Feature selection:** Our dataset initially features 123 columns, many of which are not pertinent to our analysis. To streamline our data and focus on the most impactful variables, we will selectively remove the extraneous columns and keep only relevent features. After the removing process, We are left with 45 essential columns that are directly relevant to our analytical objectives. 
+
+* **Data structure transformation:** Then, to consolidate our data, we'll transform the current structure, where each "gameid" corresponds to 12 rows (information for 2 teams, including 5 players per team and 1 team summary each), into a more concise format. Each game will now be represented by a single row that combines the information of the 5 players and their team summary.
+
+* **Data type convertion:** In the previous step, we inadvertently homogenized the data types across our DataFrame as the conversion to a NumPy array and subsequent reconstruction into a DataFrame defaulted all columns to the object data type. Thus, we will reinstated the data type with its **most frequently occurring value type** to ensuring that each column was represented by its most suitable data type.
+
+* **Add more features to the dataframe:** Lastly, to fully capture the dynamics of champion selection, we merge data from the opposing team with each team's data on a match-by-match basis. Incorporating this additional relevant information will improve the dataset's utility for predictive modeling and strategic analysis.
+
+After all cleaning is done, we now have a dataframe with 24878 rows and 211 columns. Below is the first 5 rows for our cleaned dataframe:
 
 <h3 id = "2.2">Feature of data: Visualization</h3>
-Univariate Analysis
+
+**Univariate Analysis**
+In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). Here are the bar plot:
 
 <iframe src="asset/Top_Champion.html"  width="800" height="600" frameborder="0"> </iframe>
 <iframe src="asset/Mid_Champion.html"  width="800" height="600" frameborder="0"> </iframe>
@@ -64,10 +71,15 @@ Univariate Analysis
 <iframe src="asset/bot_Champion.html" width="800" height="600" frameborder="0"> </iframe>
 <iframe src="asset/sup_Champion.html" width="800" height="600" frameborder="0"> </iframe>
 
+In the bar plot of the five positions, we can see that the frequency of hero selection shows some common characteristics: **they all have a large number of champion choice and an unbalanced distribution of frequencies**. Heroes selected more than 30 times are relatively few in number, but account for a high total number of selections in matches. Conversely, although heroes chosen fewer than 30 times constitute the majority, their total number of selections is significantly lower than that of the heroes selected more than 30 times. Therefore, in later predictive tasks, a large number of low-frequency heroes may greatly increase the dimensionality of the one-hot encoding and the complexity of the model, but only bring slight improvement to the model. So, we will consider setting a threshold for unique encoding transformation in subsequent models, where only heroes selected more than a certain number of times will be counted into.
+
+**Bivariate Analysis**
+Then, we do bivariate analysis between the "team gold difference" and "team xp difference" sepreately at 10 mins ans 15 mins during the games.
+
 <iframe src="asset/diff10m.html" width="800" height="600" frameborder="0"> </iframe>
 <iframe src="asset/diff15m.html" width="800" height="600" frameborder="0"> </iframe>
 
-In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). 
+The scatter plot shows a clear positive trend between gold and experience at both 10 and 15 minutes, which can be fitted with a linear regression. The results indicate a strong correlation between the charts, suggesting that multicollinearity should be considered when constructing future models. Also, we noticed that 
 
 <h3 id = "2.3">Pivot Table: Does side matter?</h3>
 
