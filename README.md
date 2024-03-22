@@ -178,24 +178,21 @@ To further enhance our model's accuracy, we can diversifying the feature set wit
  
 <h1 id = "7"> Final Model </h1>
 
-To improve upon out baseline model, we added the champions choosen by the ten players and the team IDs different teams exhibit varying win rates, attributed to the distinct strengths, adaptability, and the synergies or counterplays of their chosen champions.
+To improve upon our baseline model, we added features **the champions chosen by the ten players and the team IDs** as different teams exhibit varying win rates, attributed to the distinct strengths, adaptability, and the synergies or counterplays of their chosen champions that affect game outcome. 
 
 ### Model selection
-We choose a stacking model based on **one logistics regression** and **one gradient boosting tree**. This decison come with the following consideration:
+We choose a **stacking model based on one logistics regression and one gradient boosting tree**. This decison come with the following consideration:
 
- 1. Categorical features solution: The features include categorical data with high cardinality, which posed the risk of **Curse of Dimensionality** if directly use one-hot encoding. To mitigate this and use these high-cardinality categorical data, we applied a **boundary-based one-hot encoder** to filter infrequently chosen categories, followed by **PCA** for dimensionality reduction and pivotal component extraction. Then, we implemented **Bayesian target encoding** to transform categorical data into numerical values reflective of win probabilities. These strategy will effectively enhancing the model's interpretative power regarding the high cardinality caused by the categorical data. 
+ 1. Categorical features solution: The features include categorical data with high cardinality, which posed the risk of **Curse of Dimensionality** if directly use one-hot encoding. To mitigate this and use these high-cardinality categorical data, we applied a **boundary-based one-hot encoder** to filter infrequently chosen categories, followed by **PCA** for dimensionality reduction and pivotal component extraction. Then, we implemented **Bayesian target encoding** to transform categorical data into numerical values reflective of win probabilities. This strategy will effectively enhance the model's interpretative power regarding the high cardinality caused by the categorical data. 
 
-2. Quantitative features solution: For numerical data, we utilized **logistic regression with a high regularization parameter and a tree model**, this can ensure that our model will not fall into potential multicollinearity issues as the two methos has an insensitivity to collinearity.
+2. Quantitative features solution: For numerical data, we utilized **logistic regression with a high regularization parameter and a tree model**, this can ensure that our model will not fall into potential multicollinearity issues as the two methods has an insensitivity to collinearity.
 
 ### Finding hyperparameters
-Finding optional hyperparameter is cruical for model perfoermance, in our model, we will utilize the following hyperparamater:
+Finding optimal hyperparameter is cruical for model perfoermance, in our model, we will utilize the following hyperparamater:
 * **PCA components:** this parameter specifies the number of principal components retained after PCA. This balance is important for reducing dimensionality while preserving important variance in the data.
 * **Logistic regression parameter(C):** this parameter controls the regularization strength in logistic regression. A lower value use more regularization to prevent overfitting while higher value  make model more flecible to capture complex patterns.
 * **Graidient boosting tree parameter**
-    * **min_samples_leaf:** this parameter minimizes overfitting by specifying the minimum number of samples required to be at a leaf node. A higher number will leads to more generalized models.
-    * **max_leaf_nodes:** this parameter controls the growth of the tree by limiting the maximum number of leaf nodes, it regulate model complexity
     * **max_depth:** this parameter specifies the maximum depth of individual trees. It prevent the model to become too complex and overfit to the training data.
-    * **learning_rate:** this parameter scales the contribution of each tree. A lower learning rate requires more trees to model the relationships effectively
 
 The method used to select the hyperparameters is **cross_validation on a  5-fold test**, with the average F1 score as the metric to perform grid search. After running **GrideSearchCV**, the best hyperparameters are the following:
 * **PCA components:** 600. 
