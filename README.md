@@ -79,80 +79,80 @@ Then, we do bivariate analysis between the "team gold difference" and "team xp d
 <iframe src="asset/diff10m.html" width="800" height="600" frameborder="0"> </iframe>
 <iframe src="asset/diff15m.html" width="800" height="600" frameborder="0"> </iframe>
 
-The scatter plot shows a clear positive trend between gold and experience at both 10 and 15 minutes, which can be fitted with a linear regression. The results indicate a strong correlation between the charts, suggesting that multicollinearity should be considered when constructing future models. Also, we noticed that 
+The scatter plot shows a clear positive trend between gold and experience at both 10 and 15 minutes, which can be fitted with a linear regression. The results indicate a strong correlation between the charts, suggesting that multicollinearity should be considered when constructing future models. Also, we noticed that the categorical features exhibit high cardinality, while the bivariate analysis shows multicollinearity within the quantitative data. This will take in effect in later analysis.
 
-<h3 id = "2.3">Pivot Table: Does side matter?</h3>
+**Aggregates Analysis**
+In our aggregates analysis, we will examine the average gold difference at key moments in the game, notably at 10 and 15 minutes, between blue and red teams.
 
-
+The **pivot table** showcases how gold advantage correlates with team positioning. For instances, that overall teams on the **Blue side are more likely to win** with considerable gold advantages by the 15-minute mark across all positions, especially with notable leads in jungle and overall team gold.
 
 <h2 id = "3"> Assessment of Missingness </h2>
+
+The dataset we're analyzing contains numerous columns with missing data, a common issue in real-world datasets that may poses challenges for data analysis and modeling. 
+<iframe src="asset/missing_proportion.html" width="800" height="600" frameborder="0"> </iframe>
+To explore whether these missing values are Missing At Random (MAR) or Not Missing At Random (NMAR), we look for patterns in the missing data. If the presence of missing data is related to observed data, it might be MAR; if it’s related to unobserved data, it might be NMAR.
+
 <h3 id = "3.1"> NMAR analysis </h3>
+In examining the nature of these missing data, we've concluded that there is **no column that is NMAR(Not Missing at Random)**. The missineness seems to be influenced by the league from which the data originates. Specifically, some leagues do not publish "in-game data" and lead to systematic absences of information across certain columns for matches within those leagues. This aligns with the **MAR(Missing at Random)** assumption, as the missingness depends on a observed data (the league) rather than the unobserved (or missing) in-game data itself.
+
 <h3 id = "3.2"> Missing Dependency </h3>
 
-
-<iframe src="asset/missing_proportion.html" width="800" height="600" frameborder="0"> </iframe>
-
-Our observed statistic was: 0.9923034634414515
-
-Our p-value was: 0.0
+To assess the randomness of the missing data distribution across `leagues`, we will conduct a **permutation test** focusing on the `top_golddiffat15` column. This choice is based on the premise that all columns exhibit similar patterns of missingness. We hypothesize that the missingness in the `top_golddiffat15` column is random across different `leagues` and will set a sinificant lelve of 0.01.
 
 Here is the empirical distribution of the test statistic:
 
 <iframe src="asset/missing_dependency.html" width="800" height="600" frameborder="0"> </iframe>
 
+Our observed statistic was: 0.9923034634414515
 
+Our p-value was: 0.0
+
+With a p-val below the threshold of 0.01, we **reject the null hypothesis**. This indicates that the missingness in the "top_golddiffat15" data is not random across different leagues. The permutation test results, as visualized in the plot, suggests that the pattern of missing data is associated with certain conditions inherent to the leagues and so we conclude it to be MAR.
 
 <h2 id = "4"> Hypothesis Testing </h2>
-**Null hypothesis:** The distribution of "team_golddiffat15" for the winning team is the same as the distribution of "team_golddiffat15" for the losing team.
 
-**Alternative hypothesis:** The distribution of "team_golddiffat15" for the winning team is different than the distribution "team_golddiffat15" for the losing team.
+**Null hypothesis**: The distribution of "team_golddiffat15" for the winning team is the **same** as the distribution of "team_golddiffat15" for the losing team.
+
+**Alternative hypothesis**: The distribution of "team_golddiffat15" for the winning team is **different** than the distribution "team_golddiffat15" for the losing team.
 
 **Test Statistic:** We will be using []
   * We chose to use [] because [].
 
-**Significance Level:** 5% (0.05)
+**Significance Level:** 1% 
   * We choose this significance level because []
 
-**P-value:** []
+**P-value:** 0.003
   * We did [] simulations
 
-**Conclusion:** []
+**Conclusion:** Given the resulting p-value of 0.003 which falls below our significance threshold of 0.01, we reject the null hypothesis. This **suggests** that there is a statistically **significant difference** in the distribution of "team_golddiffat15" between winning and losing teams. The choice to focus on the "team_golddiffat15" metric as a means to explore how experience and gold differences impact match results is good. Gold is a tangible resource in the game that allows teams to purchase items and gain an advantage. By quantifying the gold difference, we can obtain a direct measure of one team's advantage over another, providing link to potential match outcomes. 
 
-'''
-~~subnote: delete after read!!
-~~never use language that implies an absolute conclusion, since we are performing statistical tests and not randomized controlled trials, we cannot prove that either hypothesis is 100% true or false~
-~~Justify why these choices are good choices for answering the question you are trying to answer.
-'''
 [put the visualization of our hypothesis test here]
 
 <h2 id = "5"> Framing a Prediction Problem </h2>
-Building on previous exploration of [to fill in], we want to fo futher on the factors that affect game outcomes. Specifically, we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID. This presents a binary classification problem, where our goal is to accurately forecast the match result based on these variables.
+
+Building on previous exploration of how experience and gold differences between teams impact the match results, we want to fo futher on the factors that affect game outcomes. Specifically, **we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID**. This presents a **binary classification problem**, where our goal is to accurately forecast the match result based on these variables.
 
 <h2 id = "6"> Baseline Model </h2>
-Our baseline model is a classifier model based on logistic regression. It will process one-hot encoding on the team side(blue and red) imformation, using the quantatitive data directly and fit into a logistic regression model with high regularization parameter. 
 
-We have 12 quantitative feature "team_xpdiffat15", "top_xpdiffat15", "mid_xpdiffat15", "jng_xpdiffat15", "bot_xpdiffat15", "sup_xpdiffat15", "team_golddiffat15", "top_golddiffat15", "mid_golddiffat15", "jng_golddiffat15", "bot_golddiffat15", "sup_golddiffat15", "result"; 0 ordinal feature and 1 nominal feature "side" used. 
+<h3 id = "6.1"> Model and Features Description </h3>
 
-Since categotrivcal data like "side" cannot be fed directly into logistic regression models. We one-hot encoded the "side" column, where we represneted the "blue" side with a value of 1 and the "red" side with a value of 0. This ensuring that the logistic regression model can accurately interpret and utilize the categorical information without assuming any ordinal relationship between categories. 
+Our baseline model is a **classifier model based on logistic regression**. It will process one-hot encoding on the team side(blue and red) imformation, using the quantatitive data directly and fit into a logistic regression model with high regularization parameter. 
 
-[confusion matrix]
+We have **12 quantitative feature** `team_xpdiffat15`, `top_xpdiffat15`, `mid_xpdiffat15`, `jng_xpdiffat15`, `bot_xpdiffat15`, `sup_xpdiffat15`, `team_golddiffat15`, `top_golddiffat15`, `mid_golddiffat15`, `jng_golddiffat15`, `bot_golddiffat15`, `sup_golddiffat15`, `result`; **0 ordinal feature** and **1 nominal feature** `side` used. 
 
-The performance of our current model has an accuracy rate of approximately 71%. We believe it is relatively good but have more space to improve, especially considering the impact imposed by missing data. The prevalence of missing values in critical statistical data, particularly when entire rows of data are absent due to unreported metrics like kills, deaths, assists, and experience from certain matches, sinificantly reduces the model's ability to accurately predict outcomes based on incomplete data. 
+Since categotrivcal data like `side` cannot be fed directly into logistic regression models. We one-hot encoded the `side` column, where we represneted the "blue" side with a value of 1 and the "red" side with a value of 0. This ensuring that the logistic regression model can accurately interpret and utilize the categorical information without assuming any ordinal relationship between categories. 
+
+<iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
+
+<h3 id = "6.2"> Performance Evalution and Conclusion </h3>
+
+The performance of our current model has an accuracy rate of **approximately 71%**. We believe it is relatively good but have more space to improve, especially considering the impact imposed by missing data. The prevalence of missing values in critical statistical data, particularly when entire rows of data are absent due to unreported metrics like kills, deaths, assists, and experience from certain matches, sinificantly reduces the model's ability to accurately predict outcomes based on incomplete data. 
 
 To further enhance our model's accuracy, we can diversifying the feature set with additional predictive variables that are less susceptible to missingness. Specifically, we can incorporating champion selected by the ten players and the team's ID as classification features.
-
- <h3 id = "6.1"> Feature Statement</h3>
-nominal,ordinal,quantitive
- <h3 id = "6.2"> Model Description </h3>
- <h3 id = "6.3"> Performance Evalution </h3>
- <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
- <h3 id = "6.4"> Conclusion </h3> 
  
 <h2 id = "7"> Final Model </h2>
-To improve upon out baseline model, we added the champions choosen by the ten players and the team IDs different teams exhibit varying win rates, attributed to the distinct strengths, adaptability, and the synergies or counterplays of their chosen champions.
 
- <h3 id = "7.1"> New Features in Final Model </h3>
- <h3 id = "7.2"> Model Algorithm and hyperparameters </h3>
+To improve upon out baseline model, we added the champions choosen by the ten players and the team IDs different teams exhibit varying win rates, attributed to the distinct strengths, adaptability, and the synergies or counterplays of their chosen champions.
 
 ### Model selection
 We choose a stacking model based on **one logistics regression** and **one gradient boosting tree**. This decison come with the following consideration:
@@ -161,47 +161,41 @@ We choose a stacking model based on **one logistics regression** and **one gradi
 
 2. Quantitative features solution: For numerical data, we utilized **logistic regression with a high regularization parameter and a tree model**, this can ensure that our model will not fall into potential multicollinearity issues as the two methos has an insensitivity to collinearity.
 
-### Finding best hyperparameter
-
-PCA_components: 600
-logistic regression parameter: C = 0.1
-
-graidient boosting tree parameter: min_samples_leaf = 40,max_leaf_nodes = 15,max_depth = 20,learning_rate = 0.05
-
 ### Finding hyperparameters
 Finding optional hyperparameter is cruical for model perfoermance, in our model, we will utilize the following hyperparamater:
-* PCA components: this parameter specifies the number of principal components retained after PCA. This balance is important for reducing dimensionality while preserving important variance in the data.
-* Logistic regression parameter(C): this parameter controls the regularization strength in logistic regression. A lower value use more regularization to prevent overfitting while higher value  make model more flecible to capture complex patterns.
-* Graidient boosting tree parameter: 
-    * min_samples_leaf: this parameter minimizes overfitting by specifying the minimum number of samples required to be at a leaf node. A higher number will leads to more generalized models.
-    * max_leaf_nodes: this parameter controls the growth of the tree by limiting the maximum number of leaf nodes, it regulate model complexity
-    * max_depth: this parameter specifies the maximum depth of individual trees. It prevent the model to become too complex and overfit to the training data.
-    * learning_rate: this parameter scales the contribution of each tree. A lower learning rate requires more trees to model the relationships effectively
+* **PCA components:** this parameter specifies the number of principal components retained after PCA. This balance is important for reducing dimensionality while preserving important variance in the data.
+* **Logistic regression parameter(C):** this parameter controls the regularization strength in logistic regression. A lower value use more regularization to prevent overfitting while higher value  make model more flecible to capture complex patterns.
+* **Graidient boosting tree parameter**
+    * **min_samples_leaf:** this parameter minimizes overfitting by specifying the minimum number of samples required to be at a leaf node. A higher number will leads to more generalized models.
+    * **max_leaf_nodes:** this parameter controls the growth of the tree by limiting the maximum number of leaf nodes, it regulate model complexity
+    * **max_depth:** this parameter specifies the maximum depth of individual trees. It prevent the model to become too complex and overfit to the training data.
+    * **learning_rate:** this parameter scales the contribution of each tree. A lower learning rate requires more trees to model the relationships effectively
 
-The method used to select the hyperparameters is cross_validation on a  5-fold test, with the average F1 score as the metric to perform grid search. After running GrideSearchCV, the best hyperparameters are the following:
-* PCA components: 600. 
-* Logistic regression parameter(C): 0.1 
-* Graidient boosting tree parameter: 
-    * min_samples_leaf: 40
-    * max_leaf_nodes: 15
-    * max_depth: 20
-    * learning_rate: 0.05
+The method used to select the hyperparameters is **cross_validation on a  5-fold test**, with the average F1 score as the metric to perform grid search. After running **GrideSearchCV**, the best hyperparameters are the following:
+* **PCA components:** 600. 
+* **Logistic regression parameter(C):** 0.1 
+* **Graidient boosting tree parameter**
+    * **min_samples_leaf:** 40
+    * **max_leaf_nodes:** 15
+    * **max_depth:** 20
+    * **learning_rate:** 0.05
+ 
+<iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
+ 
+<iframe src="asset/final_mdl_cm.html" width="800" height="600" frameborder="0"> </iframe>
 
 ### Model performance
 Compared to the baseline model, our final model has a improvemnet of over 2% in F1 scores, particularly in contexts with missing statistical data. Using a stacked model, which integrate logistic regression and gradient boosting trees, has improve the model's capacity to capture complex relationships within the data, thus further boosting its predictive power.
 
- <h3 id = "7.3"> The Improvement compared to Baseline </h3>
-  <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
-  <iframe src="asset/final_mdl_cm.html" width="800" height="600" frameborder="0"> </iframe>
- 
 <h2 id = "8"> Fairness Analysis </h2>
+
 With a refined predictive model with an even better level of accuracy, we now want to access its fairness. This critical evaluation will ensure that our model does not disadvantage any group of players or teams based on arbitrary criteria. We define the 1 to perdition result that are correct and 0 to perdition result that are wrong. 
+
+**Evaluation metric**: permutation test
 
 **Group X**: `league`
 
 **Group Y**: `correctness of our model's prediction` (1: correct, 0: wrong)
-
-**Evaluation metric**: permutation test
 
 **Null Hypothesis**: The distribution of correct and incorrect classification results **is consistent** across all leagues.
 
@@ -214,5 +208,3 @@ With a refined predictive model with an even better level of accuracy, we now wa
  <iframe src="asset/fairness_permutation.html" width="800" height="600" frameborder="0"> </iframe>
 
 The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy across different leagues. This discrepancy is likely attributable to the distribution of missing data (which are mainly on data with the league DCcup, LPL and LDL).
-
-
