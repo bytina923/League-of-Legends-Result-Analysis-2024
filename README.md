@@ -226,26 +226,25 @@ Compared to the baseline model, our final model has a improvemnet of over 2% in 
 
 <h1 id = "8"> Fairness Analysis </h1>
 
-With a refined predictive model with an even better level of accuracy, we now want to access its fairness. This critical evaluation will ensure that our model does not disadvantage any group of players or teams based on arbitrary criteria. We define the 1 to perdition result that are correct and 0 to perdition result that are wrong. 
+With a refined predictive model with an even better level of accuracy, we now want to access its fairness. This critical evaluation will ensure that our model does not disadvantage any group of players or teams based on arbitrary criteria. We define 
 
-**Evaluation metric**: permutation test
+**Group X**: `league` with missing value
 
-**Group X**: `league`
+**Group Y**: `league` without missing value
 
-**Group Y**: `correctness of our model's prediction` (1: correct, 0: wrong)
+We will perform a **permutation test** with:
 
-**Null Hypothesis**: The distribution of correct and incorrect classification results **is consistent** across all leagues.
+**Null Hypothesis**: Our model is fair. The accuracy of `league` with missing value (group A) and `league` with missing value (group B) are roughly the **same**. 
 
-**Alternative Hypothesis**: The distribution of correct and incorrect classification results is **not consistent** across all leagues.
+**Alternative Hypothesis**: Our model is unfair. The accuracy of `league` with missing value (group A) and `league` with missing value (group B) is **different**. 
 
-**Test Statistic**: total variation distance
+**Test Statistic**: difference of accuracy
 
 **Significant level**: 0.01
 
  <iframe src="asset/fairness_permutation.html" width="800" height="600" frameborder="0"> </iframe>
 
-The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy across different leagues. This discrepancy is likely attributable to the distribution of missing data (which are mainly on data with the league DCcup, LPL and LDL).
-
+The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy between leagues with and without missing data. The difference in accuracy across these groups suggests that the presence of missing data does impact the model's performance (which are mainly on data with the league DCcup, LPL and LDL).
 
 <h1 id = "9"> Reference </h1>
 The dataset is from <a href = "https://oracleselixir.com/tools/downloads">https://oracleselixir.com/tools/downloads</a> <br>
