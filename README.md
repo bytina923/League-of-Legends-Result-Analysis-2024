@@ -60,9 +60,15 @@ After loading the dataset from the CSV file, we will proceed to the crucial step
 
 After all cleaning is done, we now have a dataframe with 24878 rows and 211 columns. Below is the first 5 rows for our cleaned dataframe:
 
+
+graph
+
+
+
 <h3 id = "2.2">Feature of data: Visualization</h3>
 
 **Univariate Analysis**
+
 In the univariate analysis, we analyze the frequency use of differnt champion character in the five different position: top, mid(middle), bot(bottom), jng(jungle), sup(support). Here are the bar plot:
 
 <iframe src="asset/Top_Champion.html"  width="800" height="600" frameborder="0"> </iframe>
@@ -74,6 +80,7 @@ In the univariate analysis, we analyze the frequency use of differnt champion ch
 In the bar plot of the five positions, we can see that the frequency of hero selection shows some common characteristics: **they all have a large number of champion choice and an unbalanced distribution of frequencies**. Heroes selected more than 30 times are relatively few in number, but account for a high total number of selections in matches. Conversely, although heroes chosen fewer than 30 times constitute the majority, their total number of selections is significantly lower than that of the heroes selected more than 30 times. Therefore, in later predictive tasks, a large number of low-frequency heroes may greatly increase the dimensionality of the one-hot encoding and the complexity of the model, but only bring slight improvement to the model. So, we will consider setting a threshold for unique encoding transformation in subsequent models, where only heroes selected more than a certain number of times will be counted into.
 
 **Bivariate Analysis**
+
 Then, we do bivariate analysis between the "team gold difference" and "team xp difference" sepreately at 10 mins ans 15 mins during the games.
 
 <iframe src="asset/diff10m.html" width="800" height="600" frameborder="0"> </iframe>
@@ -82,7 +89,13 @@ Then, we do bivariate analysis between the "team gold difference" and "team xp d
 The scatter plot shows a clear positive trend between gold and experience at both 10 and 15 minutes, which can be fitted with a linear regression. The results indicate a strong correlation between the charts, suggesting that multicollinearity should be considered when constructing future models. Also, we noticed that the categorical features exhibit high cardinality, while the bivariate analysis shows multicollinearity within the quantitative data. This will take in effect in later analysis.
 
 **Aggregates Analysis**
+
 In our aggregates analysis, we will examine the average gold difference at key moments in the game, notably at 10 and 15 minutes, between blue and red teams.
+
+
+graph
+
+
 
 The **pivot table** showcases how gold advantage correlates with team positioning. For instances, that overall teams on the **Blue side are more likely to win** with considerable gold advantages by the 15-minute mark across all positions, especially with notable leads in jungle and overall team gold.
 
@@ -93,6 +106,7 @@ The dataset we're analyzing contains numerous columns with missing data, a commo
 To explore whether these missing values are Missing At Random (MAR) or Not Missing At Random (NMAR), we look for patterns in the missing data. If the presence of missing data is related to observed data, it might be MAR; if it’s related to unobserved data, it might be NMAR.
 
 <h3 id = "3.1"> NMAR analysis </h3>
+
 In examining the nature of these missing data, we've concluded that there is **no column that is NMAR(Not Missing at Random)**. The missineness seems to be influenced by the league from which the data originates. Specifically, some leagues do not publish "in-game data" and lead to systematic absences of information across certain columns for matches within those leagues. This aligns with the **MAR(Missing at Random)** assumption, as the missingness depends on a observed data (the league) rather than the unobserved (or missing) in-game data itself.
 
 <h3 id = "3.2"> Missing Dependency </h3>
@@ -103,11 +117,11 @@ Here is the empirical distribution of the test statistic:
 
 <iframe src="asset/missing_dependency.html" width="800" height="600" frameborder="0"> </iframe>
 
-Our observed statistic was: 0.9923034634414515
+**Our observed statistic was:** 0.9923034634414515
 
-Our p-value was: 0.0
+**Our p-value was:** 0.0
 
-With a p-val below the threshold of 0.01, we **reject the null hypothesis**. This indicates that the missingness in the "top_golddiffat15" data is not random across different leagues. The permutation test results, as visualized in the plot, suggests that the pattern of missing data is associated with certain conditions inherent to the leagues and so we conclude it to be MAR.
+With a p-val below the threshold of 0.01, we **reject the null hypothesis**. This indicates that **the missingness in the "top_golddiffat15" data is not random across different leagues**. The permutation test results, as visualized in the plot, suggests that the pattern of missing data is associated with certain conditions inherent to the leagues and so we conclude it to be MAR.
 
 <h2 id = "4"> Hypothesis Testing </h2>
 
@@ -123,6 +137,10 @@ With a p-val below the threshold of 0.01, we **reject the null hypothesis**. Thi
 
 **P-value:** 0.003
   * We did [] simulations
+
+
+grpah
+
 
 **Conclusion:** Given the resulting p-value of 0.003 which falls below our significance threshold of 0.01, we reject the null hypothesis. This **suggests** that there is a statistically **significant difference** in the distribution of "team_golddiffat15" between winning and losing teams. The choice to focus on the "team_golddiffat15" metric as a means to explore how experience and gold differences impact match results is good. Gold is a tangible resource in the game that allows teams to purchase items and gain an advantage. By quantifying the gold difference, we can obtain a direct measure of one team's advantage over another, providing link to potential match outcomes. 
 
@@ -208,3 +226,6 @@ With a refined predictive model with an even better level of accuracy, we now wa
  <iframe src="asset/fairness_permutation.html" width="800" height="600" frameborder="0"> </iframe>
 
 The analysis resulted in a p-value of 0.0. Since the p-value is less than the threshold 0.01, we **reject** the null hypothesis. This lead to the conclusion that our model **demonstrates unfairness** in terms of prediction accuracy across different leagues. This discrepancy is likely attributable to the distribution of missing data (which are mainly on data with the league DCcup, LPL and LDL).
+
+
+<h2 id = "9"> Reference </h2>
