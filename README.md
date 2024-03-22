@@ -92,8 +92,16 @@ The scatter plot shows a clear positive trend between gold and experience at bot
 
 In our aggregates analysis, we will examine the average gold difference at key moments in the game, notably at 10 and 15 minutes, between blue and red teams.
 
+| side   |   bot_golddiffat10 |   jng_golddiffat10 |   mid_golddiffat10 |   sup_golddiffat10 |   team_golddiffat10 |   top_golddiffat10 |
+|:-------|-------------------:|-------------------:|-------------------:|-------------------:|--------------------:|-------------------:|
+| Blue   |           -4.53548 |            41.5775 |            9.22125 |            12.7987 |             86.9135 |            27.8516 |
+| Red    |            4.21795 |           -41.6012 |           -9.39441 |           -13.2147 |            -87.0592 |           -27.0669 |
 
-graph
+| side   |   bot_golddiffat15 |   jng_golddiffat15 |   mid_golddiffat15 |   sup_golddiffat15 |   team_golddiffat15 |   top_golddiffat15 |
+|:-------|-------------------:|-------------------:|-------------------:|-------------------:|--------------------:|-------------------:|
+| Blue   |            21.5759 |            94.3418 |            36.7647 |            36.5881 |             246.508 |            57.2372 |
+| Red    |           -21.4593 |           -94.55   |           -37.4742 |           -38.0258 |            -247.213 |           -55.7041 |
+
 
 
 
