@@ -210,12 +210,12 @@ The method used to select the hyperparameters is **cross_validation on a  5-fold
                                    ColumnTransformer(remainder=StandardScaler(),
                                                      transformers=[('one_hot_PCA',
                                                                     Pipeline(steps=[('bound',
-                                                                                     FunctionTransformer(func=<function OneHotEncoder_with_boundary at 0x168306040>)),
+                                                                                     FunctionTransformer(func=<function OneHotEncoder_with_boundary at 0x1683063a0>)),
                                                                                     ('onehot',
                                                                                      OneHotEncoder(handle_unknown='ignore',
                                                                                                    sparse=False)),
                                                                                     ('PCA',
-                                                                                     PCA(n_components=400))]),
+                                                                                     PCA(n_components=600))]),
                                                                     ['side',
                                                                      'top_champion',...
                                                                      'mid_champion_opp',
@@ -236,7 +236,7 @@ The method used to select the hyperparameters is **cross_validation on a  5-fold
                                                                      max_iter=500)),
                                                  ('tree',
                                                   HistGradientBoostingClassifier(max_depth=20))],
-                                     n_jobs=-1))]))
+                                     n_jobs=-1))]),)
 ```
  
 <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
