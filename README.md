@@ -203,41 +203,6 @@ The method used to select the hyperparameters is **cross_validation on a  5-fold
 * **PCA components:** 600 
 * **Logistic regression parameter(C):** 0.1 
 * **Graidient boosting tree max_depth:** 20
-
-```python
-(Pipeline(steps=[('600components',
-                  Pipeline(steps=[('ct',
-                                   ColumnTransformer(remainder=StandardScaler(),
-                                                     transformers=[('one_hot_PCA',
-                                                                    Pipeline(steps=[('bound',
-                                                                                     FunctionTransformer(func=<function OneHotEncoder_with_boundary at 0x1683063a0>)),
-                                                                                    ('onehot',
-                                                                                     OneHotEncoder(handle_unknown='ignore',
-                                                                                                   sparse=False)),
-                                                                                    ('PCA',
-                                                                                     PCA(n_components=600))]),
-                                                                    ['side',
-                                                                     'top_champion',...
-                                                                     'mid_champion_opp',
-                                                                     'bot_champion_opp',
-                                                                     'sup_champion_opp']),
-                                                                   ('drop',
-                                                                    'drop',
-                                                                    ['top_playerid',
-                                                                     'mid_playerid',
-                                                                     'bot_playerid',
-                                                                     'jng_playerid',
-                                                                     'sup_playerid',
-                                                                     'league'])])),
-                                  ('missingimpute', SimpleImputer())])),
-                 ('stacking',
-                  StackingClassifier(estimators=[('lr1',
-                                                  LogisticRegression(C=0.5,
-                                                                     max_iter=500)),
-                                                 ('tree',
-                                                  HistGradientBoostingClassifier(max_depth=20))],
-                                     n_jobs=-1))]),)
-```
  
 <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
  
