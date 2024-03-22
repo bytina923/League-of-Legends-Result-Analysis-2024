@@ -148,17 +148,17 @@ grpah
 
 <h2 id = "5"> Framing a Prediction Problem </h2>
 
-Building on previous exploration of how experience and gold differences between teams impact the match results, we want to fo futher on the factors that affect game outcomes. Specifically, **we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID**. This presents a **binary classification problem**, where our goal is to accurately forecast the match result based on these variables.
+Building on previous exploration of how experience and gold differences between teams impact the match results, we want to fo futher on the factors that affect game result. Specifically, **we want to predict the game "result" by utilizing statistical data from the 10 and 15-minute marks, the chosen ten champions, team ID, and player ID**. This presents a **binary classification problem**, where our goal is to predict the match `result` based on these variables. We choose "result" as our response variable because it can be distinctly classified into two categories (win or loss), leading our prediction into a binary classification framework and capturing the ultimate goal of every match. To evaluate our model, we will use the F1 score and the confusion matrix over other metrics such as accuracy. We choose the F1 score because of its balance between precision and recall, where it is capable of capturing both false positives and false negatives, which are crucial considerations in predicting game outcomes. We choose confusion matrix because it provides a comprehensive overview of the model's performance as it break down predictions into true positives, true negatives, false positives, and false negatives.
 
 <h1 id = "6"> Baseline Model </h1>
 
 <h3 id = "6.1"> Model and Features Description </h3>
 
-Our baseline model is a **classifier model based on logistic regression**. It will process one-hot encoding on the team side(blue and red) imformation, using the quantatitive data directly and fit into a logistic regression model with high regularization parameter. 
+Our baseline model is a **classifier model based on logistic regression**. It will process one-hot encoding on the team side(blue and red) information, using the quantitative data directly and fit into a logistic regression model with high regularization parameter. 
 
 We have **12 quantitative feature** `team_xpdiffat15`, `top_xpdiffat15`, `mid_xpdiffat15`, `jng_xpdiffat15`, `bot_xpdiffat15`, `sup_xpdiffat15`, `team_golddiffat15`, `top_golddiffat15`, `mid_golddiffat15`, `jng_golddiffat15`, `bot_golddiffat15`, `sup_golddiffat15`, `result`; **0 ordinal feature** and **1 nominal feature** `side` used. 
 
-Since categotrivcal data like `side` cannot be fed directly into logistic regression models. We one-hot encoded the `side` column, where we represneted the "blue" side with a value of 1 and the "red" side with a value of 0. This ensuring that the logistic regression model can accurately interpret and utilize the categorical information without assuming any ordinal relationship between categories. 
+Since categorical data like `side` cannot be fed directly into logistic regression models. We will **one-hot encoded the `side` column**, where we represented the "blue" side with a value of 1 and the "red" side with a value of 0. This ensuring that the logistic regression model can accurately interpret and utilize the categorical information without assuming any ordinal relationship between categories. 
 
 <iframe src="asset/baseline_cm.html" width="800" height="600" frameborder="0"> </iframe>
 
