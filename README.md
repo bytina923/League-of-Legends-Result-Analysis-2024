@@ -1,6 +1,7 @@
 <h1 id = "0"> League of Legends Predictive Analytics </h1>
-BY: Zhenghao Gong, Bingyan Liu
 
+BY: Zhenghao Gong, Bingyan Liu
+<a href="https://bytina923.github.io/League-of-Legends-Result-Analysis-2024/#0" target="_blank">Project Website</a><br>
 <a href = "#1"> Introduction </a><br>
 <a href = "#2"> Data Cleaning and Exploratory Data </a><br>
 <a href = "#3"> Assessment of Missingness </a><br>
